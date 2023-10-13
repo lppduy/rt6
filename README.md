@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+<!-- MPA SPA -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. MPAs will have the entire page getting loaded wheares SPAs will have the main page loaded once and then the sub-page sections are changing without a refresh and this is handled by js inside the browser
+2. react router + reach router
 
-## Available Scripts
+<!-- defiiing routes - static routes -->
 
-In the project directory, you can run:
+- index.js -> BrowserRouter
+- App.js -> Routes -> Route: path + element
+- Link -> not reload -> to (a href)
+- spa is a smooth transition of pages from link to link
 
-### `npm start`
+<!-- url & routes -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- isnt the same
+- url: something in the browser
+- Routes: the code check the url value and compare with Route -> use the attb. element={} -> render
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- dynamic -->
 
-### `npm test`
+1. app.js -> path='products/:id'
+2. products/6 => {id:6}
+3. const {id} = usePrams();
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- nested routes - <Outlet/> -->
 
-### `npm run build`
+1. route trong route -> outlet
+2. context(outlet)
+3. useOutletContext hook
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- 404 page -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. path="\*"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- parent route -->
 
-### `npm run eject`
+1. Route '/' > Route x n && Route index
+2. index -> point the route to its parent route
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<!-- useLocation() -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. return the state data insidate the 'location' object
+2. location
+   - pathname
+   - search
+   - hash
+   - state ->
+   - key
