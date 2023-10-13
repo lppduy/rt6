@@ -46,3 +46,6 @@
    - hash
    - state ->
    - key
+   <!-- useRoute() -->
+
+- => array of routes (path,el,child)

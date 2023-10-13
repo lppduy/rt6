@@ -12,13 +12,15 @@ const Products = () => {
     <div>
       <h1>Products</h1>
       <ul>
-        {products.map(p => (
-          <li>
-            <Link style={{ textDecoration: 'none' }} to={`/products/${p.id}`}>
-              {p.name}
-            </Link>
-          </li>
-        ))}
+        {products.map(p => {
+          return (
+            <li>
+              <Link state={p} style={{ textDecoration: 'none' }} to={`/products/${p.id}`}>
+                {p.name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <hr />
       <Outlet context={products} />
