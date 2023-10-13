@@ -1,10 +1,21 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import About from './components/About';
 import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
 import Products from './components/Products';
+function NotFound() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate(-1);
+    }, 1000);
+  }, []);
 
+  return <h1>NOT FOUND</h1>;
+  // return <Navigate to="/" />;
+}
 function App() {
   return (
     <div className="App">
@@ -32,6 +43,7 @@ function App() {
         <Route path="/products/" element={<Products />}>
           <Route path=":id" element={<ProductDetails />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

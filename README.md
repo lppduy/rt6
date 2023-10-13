@@ -49,3 +49,11 @@
    <!-- useRoute() -->
 
 - => array of routes (path,el,child)
+
+<!-- NavLink -> class active -->
+<!-- Navigate -->
+
+1. component -> to
+2. useNavigate => use in the reality
+   - return a function
+   - -1 => previous
