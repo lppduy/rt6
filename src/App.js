@@ -1,11 +1,42 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useRoutes } from 'react-router-dom';
 import './App.css';
 import About from './components/About';
 import Home from './components/Home';
+import NoFound from './components/NoFound';
 import ProductDetails from './components/ProductDetails';
 import Products from './components/Products';
 
 function App() {
+  let routeElements = useRoutes([
+    {
+      path: '/',
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: '/about',
+          element: <About />,
+        },
+        {
+          path: '/products',
+          element: <Products />,
+          children: [
+            {
+              path: ':id',
+              element: <ProductDetails />,
+            },
+          ],
+        },
+        {
+          path: '*',
+          element: <NoFound />,
+        },
+      ],
+    },
+  ]);
+
   return (
     <div className="App">
       <ul>
@@ -26,13 +57,7 @@ function App() {
         </li>
       </ul>
       <hr />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products/" element={<Products />}>
-          <Route path=":id" element={<ProductDetails />} />
-        </Route>
-      </Routes>
+      {routeElements}
     </div>
   );
 }
